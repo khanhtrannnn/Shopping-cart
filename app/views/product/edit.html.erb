@@ -2,7 +2,24 @@
 
 <%= form_for(@product) do |f| %>
 
-    <%= render 'form' %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :unit_price %><br>
+      <%= f.text_field :unit_price %>
+    </p>
+
+    <p>
+      <%= f.label :amount %><br>
+      <%= f.text_field :amount %>
+    </p>
+
+    <p>
+      <%= f.submit 'Update' %>
+    </p>
 
 <% end %>
 
