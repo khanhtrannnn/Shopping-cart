@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1>MAIN PAGE</h1>
+
+<%= form_tag(products_path, method: :get, id: 'search-form') do %>
+    <%= text_field_tag :search, params[:search], placeholder: 'Search for name' %>
+    <%= submit_tag 'Search' %>
+<% end %>
+
+<% @product_types.each do |product_type| %>
+    <tr>
+      <td><%= link_to product_type.type_name, product_type_products_path(product_type)  %></td> |
+    </tr>
+<% end %>
+<td><%= link_to 'All', '/main/main_page' %></td>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Unit price</th>
+    <th>Amount</th>
+    <th>Product type</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name,"/list/show/#{product.id}" %></td>
+        <td><%= product.unit_price %></td>
+        <td><%= product.amount %></td>
+        <td><%= product.product_type_id %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>

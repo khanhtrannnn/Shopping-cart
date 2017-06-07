@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605025705) do
+ActiveRecord::Schema.define(version: 20170605091642) do
 
   create_table "order_items", force: :cascade do |t|
     t.float "price"
     t.integer "amount"
+    t.integer "order_id"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -36,10 +40,12 @@ ActiveRecord::Schema.define(version: 20170605025705) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.integer "unit_price"
+    t.float "unit_price"
     t.integer "amount"
+    t.integer "product_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_type_id"], name: "index_products_on_product_type_id"
   end
 
   create_table "users", force: :cascade do |t|

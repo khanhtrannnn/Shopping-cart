@@ -12,7 +12,7 @@ class SessionController < ApplicationController
     @user = User.where(username: params[:user][:username], password: params[:user][:password]).first
     if @user
       session[:user_id] = @user.id
-      redirect_to product_index_path
+      redirect_to products_path
     else
       redirect_to 'session/login'
     end

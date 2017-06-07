@@ -1,0 +1,16 @@
+<h1>CART</h1>
+
+<% session[:cart].each do |item| %>
+    <% product = Product.find(item['product_id']) %>
+    Name: <%= product.name %>,
+    Amount: <%= item['amount'] %>,
+    Total price: <%= item['total_price'] %>.
+    <%= link_to 'Delete', "/cart/delete/#{item['product_id']}" %>
+    <br>
+<% end %>
+
+TOTAL: <%= @total_cart %><br>
+
+<%= link_to 'BUY', '/cart/buy_success', class: 'button alt', data: {confirm: 'Do you want to buy all products in cart?'} %>
+
+

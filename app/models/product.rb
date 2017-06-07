@@ -4,4 +4,8 @@ class Product < ApplicationRecord
   has_many :order_items
   has_many :orders, through: :order_items
 
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+  end
+
 end
