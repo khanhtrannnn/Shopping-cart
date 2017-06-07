@@ -27,7 +27,6 @@ class ListController < ApplicationController
     if insert
       session[:cart] << {:product_id => params[:id], :amount => params[:product][:amount].to_i, :total_price => total_price.to_i}
       redirect_to "/list/show/#{params[:id]}"
-
     end
 
   end

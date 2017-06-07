@@ -25,5 +25,17 @@ class CartController < ApplicationController
   end
 
   def buy_success
+    i = 0
+    loop do
+      session[:cart].each do |item|
+        session[:cart].delete(item)
+      end
+      i+= 1
+      break if i > 100
+    end
+
   end
+
+
 end
+
