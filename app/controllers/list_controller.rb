@@ -25,9 +25,8 @@ class ListController < ApplicationController
     end
 
     if insert
-      session[:cart] << {:product_id => params[:id].to_i, :amount => params[:product][:amount].to_i, :total_price => total_price.to_i}
-      product = Product.find(params[:id])
-      redirect_to "/list/show/#{params[:id]}", notice: "Added #{product.name} to cart."
+      session[:cart] << {:product_id => params[:id], :amount => params[:product][:amount].to_i, :total_price => total_price.to_i}
+      redirect_to "/list/show/#{params[:id]}"
 
     end
 

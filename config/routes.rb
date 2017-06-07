@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get 'main/show_products'
 
-  get 'main/search'
+  get 'main/search', to:'main#search'
 
   get 'main/cart'
 
