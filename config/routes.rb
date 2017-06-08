@@ -10,8 +10,6 @@ Rails.application.routes.draw do
 
   get 'cart/delete/:id', to: 'cart#delete'
 
-  get 'cart/cart_process/:id', to: 'cart#cart_process'
-
   get 'cart/buy_success', to: 'cart#buy_success'
 
   resources :products
