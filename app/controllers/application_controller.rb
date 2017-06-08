@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   def authenticate
     if session[:user_id].nil?
       redirect_to '/session/login'
+    else
+      @current_user = User.find(session[:user_id])
     end
-
-    @current_user = User.find(session[:user_id])
   end
 end

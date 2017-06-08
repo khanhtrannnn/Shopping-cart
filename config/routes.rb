@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'admin_page/index', to: 'admin_page#index'
+
   get 'list/show/:id', to: 'list#show'
 
   post 'list/add/:id', to: 'list#add'

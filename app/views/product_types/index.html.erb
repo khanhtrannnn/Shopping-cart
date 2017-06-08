@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if @current_user.admin? %>
+
+    <p id="notice"><%= notice %></p>
 
 <h1>Product Types</h1>
 
@@ -25,3 +27,5 @@
 <br>
 
 <%= link_to 'New Product Type', new_product_type_path %>
+
+<% end %>

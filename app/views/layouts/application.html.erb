@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TestApp</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>TestApp</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  Hi, <%= @current_user.username %> !
-  <%= link_to 'Log out', '/session/logout', style: 'color: red; font-size: 17px' %><br>
+<body>
+<% if @current_user.admin? %>
+    <p> You are accessed as admin -> Go to <%= link_to 'Admin management page', '/admin_page/index' %></p>
+<% end %>
 
-  <%= link_to 'HOME', '/main/main_page' %><br>
+<p id="name">
+ Hi, <%= @current_user.username%> ! <%= link_to 'Log out', '/session/logout', style: 'color: red; font-size: 15px' %><br>
 
-  <%= link_to 'CART', '/cart/show' %><br>
+</p>
 
-  <%= yield %>
+<p id="title">
+<%= link_to 'HOME', '/main/main_page' %>    |     <%= link_to 'CART', '/cart/show' %><br>
+</p>
 
-  </body>
+<%= yield %>
+
+</body>
 </html>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605091642) do
+ActiveRecord::Schema.define(version: 20170607082035) do
 
   create_table "order_items", force: :cascade do |t|
     t.float "price"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170605091642) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
   end
 
 end

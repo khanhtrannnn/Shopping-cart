@@ -10,10 +10,6 @@ class MainController < ApplicationController
     end
   end
 
-  def search
-
-  end
-
   private
   def product_type_params
     params.require(:product_type).permit(:type_name)
